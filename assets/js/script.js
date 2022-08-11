@@ -39,10 +39,12 @@ $(() => {
     let formulario = $("form");
 
     formulario.submit(function (event) {
+        event.preventDefault();
+
         let superHero = $("#hero").val();
         let regex = /[0-9]|\./;
+
         if (!regex.test(superHero)) {
-            event.returnValue = false;
             alert("Enter a valid ID");
         } else {
             callData(superHero);
